@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price Patrol — Stop overpaying. Find the cheapest price instantly.</title>
+  <meta name="description" content="Price Patrol compares prices across 15+ retailers — Amazon, Walmart, Target, eBay, Best Buy & more. Get price drop alerts. 100% free Chrome extension." />
+  <meta name="theme-color" content="#10b981" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Price Patrol — Instant Price Comparison Across 15+ Stores" />
+  <meta property="og:description" content="Stop overpaying. Find the cheapest price for any product across Amazon, Walmart, Target, eBay, Best Buy & more. 100% free." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       NAV
+       ════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+
+        <a href="#" class="nav__logo" aria-label="Price Patrol home">
+          <span class="nav__logo-icon">🏷️</span>
+          Price<span>Patrol</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#stores">Stores</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="nav__cta">
+          <a href="#" class="btn btn-primary cta-link" style="padding:9px 18px;font-size:14px;">Add to Chrome — Free</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#features" class="mobile-nav-link">Features</a>
+    <a href="#how-it-works" class="mobile-nav-link">How it works</a>
+    <a href="#stores" class="mobile-nav-link">Stores</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="#" class="btn btn-primary cta-link" style="margin-top:8px;justify-content:center;">Add to Chrome — Free</a>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg-blob hero__bg-blob--1"></div>
+      <div class="hero__bg-blob hero__bg-blob--2"></div>
+      <div class="hero__bg-grid"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero__inner">
+
+        <!-- Left: copy -->
+        <div class="hero__copy">
+          <div class="hero__badge reveal">
+            <span class="tag">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="#10b981" opacity="0.25"/><circle cx="6" cy="6" r="2.5" fill="#10b981"/></svg>
+              Chrome Extension &nbsp;·&nbsp; 100% Free
+            </span>
+          </div>
+
+          <h1 class="hero__h1 reveal reveal-delay-1">
+            Stop overpaying.<br>
+            Find the best price&nbsp;<span class="hero__gradient">instantly.</span>
+          </h1>
+
+          <p class="hero__sub reveal reveal-delay-2">
+            Price Patrol compares prices across Amazon, Walmart, Target, eBay, Best Buy and 10+ more stores — right on the product page. No tabs. No searching. Just savings.
+          </p>
+
+          <div class="hero__ctas reveal reveal-delay-3">
+            <a href="#" class="btn btn-primary btn-lg cta-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Add to Chrome — It's Free
+            </a>
+            <a href="#how-it-works" class="btn btn-ghost btn-lg">
+              See how it works&nbsp;&rarr;
+            </a>
+          </div>
+
+          <div class="hero__social-proof reveal reveal-delay-4">
+            <div class="hero__avatars" aria-hidden="true">
+              <div class="hero__avatar">A</div>
+              <div class="hero__avatar">T</div>
+              <div class="hero__avatar">L</div>
+              <div class="hero__avatar">D</div>
+              <div class="hero__avatar">R</div>
+            </div>
+            <span>Join smart shoppers saving money every day</span>
+          </div>
+        </div>
+
+        <!-- Right: extension mockup -->
+        <div class="hero__mockup-wrap reveal reveal-delay-2">
+          <div class="mockup" role="img" aria-label="Price Patrol overlay bar preview">
+            <div class="mockup__glow" aria-hidden="true"></div>
+
+            <div class="mockup__header">
+              <div class="mockup__logo" aria-hidden="true">🏷️</div>
+              <div>
+                <div class="mockup__product-name">Sony WH-1000XM5 Wireless Headphones</div>
+                <div class="mockup__product-meta">
+                  <span>You're on: <strong>Amazon</strong></span>
+                  <span aria-hidden="true">·</span>
+                  <span class="mockup__current-price">$348.00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mockup__results">
+              <div class="mockup__result mockup__result--best">
+                <div class="mockup__result-store">Best Buy</div>
+                <div class="mockup__result-price">$279.99</div>
+                <div class="mockup__result-savings">Save $68</div>
+              </div>
+              <div class="mockup__result">
+                <div class="mockup__result-store">Walmart</div>
+                <div class="mockup__result-price">$298.00</div>
+                <div class="mockup__result-savings">Save $50</div>
+              </div>
+              <div class="mockup__result">
+                <div class="mockup__result-store">Target</div>
+                <div class="mockup__result-price">$329.99</div>
+                <div class="mockup__result-savings">Save $18</div>
+              </div>
+              <div class="mockup__result mockup__result--current">
+                <div class="mockup__result-store">Amazon</div>
+                <div class="mockup__result-price">$348.00</div>
+                <div class="mockup__result-savings">Current</div>
+              </div>
+            </div>
+
+            <div class="mockup__footer">
+              <span class="mockup__badge mockup__badge--savings">
+                You could save $68.01
+              </span>
+              <span class="mockup__badge mockup__badge--source">
+                4 stores compared
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       STORE STRIP
+       ════════════════════════════════════════════ -->
+  <section class="stores" id="stores" aria-label="Supported stores">
+    <div class="container">
+      <div class="stores__inner">
+        <span class="stores__label">Works on 15+ stores:</span>
+        <ul class="stores__list" role="list">
+          <li><span class="store-badge">Amazon</span></li>
+          <li><span class="store-badge">Walmart</span></li>
+          <li><span class="store-badge">Target</span></li>
+          <li><span class="store-badge">Best Buy</span></li>
+          <li><span class="store-badge">eBay</span></li>
+          <li><span class="store-badge">Costco</span></li>
+          <li><span class="store-badge">Newegg</span></li>
+          <li><span class="store-badge">B&amp;H</span></li>
+          <li><span class="store-badge">Home Depot</span></li>
+          <li><span class="store-badge">Lowe's</span></li>
+          <li><span class="store-badge">Macy's</span></li>
+          <li><span class="store-badge">Kohl's</span></li>
+          <li><span class="store-badge">Samsung</span></li>
+          <li><span class="store-badge">Apple</span></li>
+          <li><span class="store-badge">Microsoft</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       PROBLEM
+       ════════════════════════════════════════════ -->
+  <section class="problem" aria-labelledby="problem-title">
+    <div class="container">
+      <h2 class="problem__title reveal" id="problem-title">
+        You're leaving money<br>on the <em>table.</em>
+      </h2>
+
+      <div class="problem__grid">
+        <div class="problem-card reveal">
+          <div class="problem-card__icon" aria-hidden="true">🔄</div>
+          <h3 class="problem-card__title">Tab After Tab</h3>
+          <p class="problem-card__body">Manually checking Amazon, then Walmart, then Best Buy, then Target... it takes 15 minutes per product. Most people just give up.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-card__icon" aria-hidden="true">🏷️</div>
+          <h3 class="problem-card__title">Fake "Sales"</h3>
+          <p class="problem-card__body">That "40% off" badge? Often the product is cheaper at full price somewhere else. Without data, you can't tell.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-card__icon" aria-hidden="true">📉</div>
+          <h3 class="problem-card__title">Prices Change Hourly</h3>
+          <p class="problem-card__body">The cheapest store today might not be cheapest tomorrow. Tracking prices across retailers is a full-time job.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-card__icon" aria-hidden="true">💸</div>
+          <h3 class="problem-card__title">$50+ Left on the Table</h3>
+          <p class="problem-card__body">On electronics alone, the average price gap between stores is $20-$80. Over a year of purchases, that's hundreds of dollars lost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FEATURES
+       ════════════════════════════════════════════ -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <div class="features__head">
+        <p class="section-label">Everything you need</p>
+        <h2 class="section-title reveal" id="features-title">Never overpay again.</h2>
+        <p class="section-sub reveal reveal-delay-1" style="margin:0 auto;">Six powerful tools in one lightweight, 100% free Chrome extension.</p>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature-card reveal">
+          <span class="feature-card__icon" aria-hidden="true">⚡</span>
+          <h3 class="feature-card__title">Instant Comparison</h3>
+          <p class="feature-card__body">Prices from 15+ stores appear in a sleek overlay bar — right on the product page. No new tabs, no searching.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <span class="feature-card__icon" aria-hidden="true">🧠</span>
+          <h3 class="feature-card__title">AI-Powered Matching</h3>
+          <p class="feature-card__body">Claude AI ensures you're comparing the exact same product — right model, size, color, and storage. No false matches.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <span class="feature-card__icon" aria-hidden="true">🔔</span>
+          <h3 class="feature-card__title">Price Drop Alerts</h3>
+          <p class="feature-card__body">Set a target price and get notified when any store drops below it. Never miss a deal on products you're watching.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <span class="feature-card__icon" aria-hidden="true">📈</span>
+          <h3 class="feature-card__title">Price History</h3>
+          <p class="feature-card__body">See how prices have changed over time across stores. Trend arrows show you if prices are rising or falling.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <span class="feature-card__icon" aria-hidden="true">🌐</span>
+          <h3 class="feature-card__title">Works Everywhere</h3>
+          <p class="feature-card__body">Detects products on any e-commerce site — Shopify, WooCommerce, or custom stores — via structured data. Not just big retailers.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <span class="feature-card__icon" aria-hidden="true">🔒</span>
+          <h3 class="feature-card__title">Private & Secure</h3>
+          <p class="feature-card__body">No account required. No browsing history collected. All API keys stored server-side. Your shopping data stays yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       HOW IT WORKS
+       ════════════════════════════════════════════ -->
+  <section class="how" id="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <div class="how__head">
+        <p class="section-label">Dead simple</p>
+        <h2 class="section-title reveal" id="how-title">Saving money in 3 steps.</h2>
+        <p class="section-sub reveal reveal-delay-1" style="margin:0 auto;">Install, browse, save. That's it.</p>
+      </div>
+
+      <div class="how__steps">
+        <div class="how-step reveal">
+          <div class="how-step__num" aria-hidden="true">1</div>
+          <h3 class="how-step__title">Browse any product</h3>
+          <p class="how-step__body">Visit any product page — Amazon, Walmart, Target, Best Buy, or any site with product data. Price Patrol detects it automatically.</p>
+        </div>
+
+        <div class="how-step reveal reveal-delay-1">
+          <div class="how-step__num" aria-hidden="true">2</div>
+          <h3 class="how-step__title">See every price</h3>
+          <p class="how-step__body">A slim overlay bar appears at the bottom with prices from 15+ stores. Sorted cheapest first. Green highlight shows the best deal.</p>
+        </div>
+
+        <div class="how-step reveal reveal-delay-2">
+          <div class="how-step__num" aria-hidden="true">3</div>
+          <h3 class="how-step__title">Click and save</h3>
+          <p class="how-step__body">Click any result to go straight to that store's product page. Or set a price alert and wait for the perfect price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       PRICING / FREE CALLOUT
+       ════════════════════════════════════════════ -->
+  <section class="free-callout" id="pricing" aria-labelledby="free-title">
+    <div class="container">
+      <div class="free-callout__inner reveal">
+        <div class="free-callout__badge">100% Free</div>
+        <h2 class="free-callout__title" id="free-title">
+          No subscriptions.<br>No limits. No catch.
+        </h2>
+        <p class="free-callout__body">
+          Price Patrol is completely free — unlimited comparisons, unlimited alerts, every feature unlocked. We earn a small affiliate commission when you buy through our links. You pay the same price (or less). Everyone wins.
+        </p>
+        <div class="free-callout__features">
+          <div class="free-callout__feature">
+            <span class="free-callout__check" aria-hidden="true">&#10003;</span>
+            <span>Unlimited price comparisons</span>
+          </div>
+          <div class="free-callout__feature">
+            <span class="free-callout__check" aria-hidden="true">&#10003;</span>
+            <span>Unlimited price drop alerts</span>
+          </div>
+          <div class="free-callout__feature">
+            <span class="free-callout__check" aria-hidden="true">&#10003;</span>
+            <span>15+ retailers supported</span>
+          </div>
+          <div class="free-callout__feature">
+            <span class="free-callout__check" aria-hidden="true">&#10003;</span>
+            <span>AI-powered product matching</span>
+          </div>
+          <div class="free-callout__feature">
+            <span class="free-callout__check" aria-hidden="true">&#10003;</span>
+            <span>Price history tracking</span>
+          </div>
+          <div class="free-callout__feature">
+            <span class="free-callout__check" aria-hidden="true">&#10003;</span>
+            <span>No account required</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg cta-link" style="margin-top:12px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Add to Chrome — It's Free
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FAQ
+       ════════════════════════════════════════════ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="faq__head">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title reveal" id="faq-title">Common questions.</h2>
+      </div>
+
+      <ul class="faq__list reveal" role="list" aria-label="Frequently asked questions">
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            How is Price Patrol free?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>We earn a small affiliate commission when you purchase through one of our links. The price you pay is exactly the same — we just get credit for referring you. This lets us keep the extension 100% free with no limits.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            Does it work on sites other than Amazon?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Yes — Price Patrol works on any website that has structured product data (JSON-LD, Open Graph, or microdata). That includes Amazon, Walmart, Target, Best Buy, eBay, Costco, and thousands of Shopify, WooCommerce, and custom stores.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            How does the AI matching work?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Price Patrol uses Claude AI to understand product titles, model numbers, variants (size, color, storage), and brands. This means "iPhone 15 Pro 256GB Black" won't be matched with "iPhone 15 128GB" — you only see real comparisons for the exact product you're looking at.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            Is my shopping data private?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Yes. Price Patrol only reads product data on pages you visit — it does not track your browsing history, collect personal information, or store your purchase data. All API keys are stored server-side. No account is required to use the extension.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            What's the difference between Price Patrol and Honey?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Honey focuses on coupon codes and cashback for the store you're already on. Price Patrol compares the actual product price across 15+ different stores in real time — showing you where the product is genuinely cheapest, not just whether there's a coupon code available.</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       CTA BANNER
+       ════════════════════════════════════════════ -->
+  <section class="cta-banner" aria-labelledby="cta-title">
+    <div class="cta-banner__bg" aria-hidden="true">
+      <div class="cta-banner__bg-line"></div>
+      <div class="cta-banner__bg-line cta-banner__bg-line-b"></div>
+    </div>
+    <div class="container">
+      <div class="cta-banner__inner reveal">
+        <h2 class="cta-banner__title" id="cta-title">
+          Start saving on every purchase.
+        </h2>
+        <p class="cta-banner__sub">100% free. No account needed. No limits.</p>
+        <a href="#" class="btn btn-primary btn-lg cta-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Add to Chrome — It's Free
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__logo">
+          <span aria-hidden="true">🏷️</span>
+          Price<span>Patrol</span>
+        </div>
+
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="https://broadben.github.io/pricepatrol-privacy/">Privacy Policy</a>
+          <a href="mailto:hello@pricepatrol.io">Contact</a>
+        </nav>
+
+        <p class="footer__copy">&copy; 2026 Price Patrol</p>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="main.js"></script>
+</body>
+</html>

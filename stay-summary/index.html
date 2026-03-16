@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StaySummary — Never book a bad stay again.</title>
+  <meta name="description" content="StaySummary uses AI to summarize Airbnb, Booking.com, VRBO and 4 more platform reviews in seconds. Get pros, cons, red flags, safety score, and neighborhood guide before you book." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <header class="nav-wrapper">
+    <nav class="nav container">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">🏡</span>
+        <span class="nav-logo-text">StaySummary</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <button class="btn btn-primary nav-cta cta-trigger">Add to Chrome — Free</button>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile-menu">
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <button class="btn btn-primary cta-trigger">Add to Chrome — Free</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero section-pad">
+      <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Chrome Extension &nbsp;·&nbsp; Travel
+          </div>
+          <h1 class="hero-h1">
+            Never book a<br />
+            <span class="gradient-text">bad stay</span><br />
+            again.
+          </h1>
+          <p class="hero-sub">
+            StaySummary reads every review on Airbnb, Booking.com, VRBO and 4 more
+            platforms and gives you the honest summary in seconds — pros, cons, red
+            flags, safety score, and neighborhood guide.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn btn-primary btn-lg cta-trigger">Add to Chrome — It's Free</button>
+            <a href="#how-it-works" class="btn btn-ghost btn-lg">See how it works →</a>
+          </div>
+          <p class="hero-social-proof">
+            <span class="proof-stars">★★★★★</span>
+            Trusted by travelers who've stopped booking blind
+          </p>
+        </div>
+
+        <div class="hero-mockup reveal reveal-delay-1">
+          <div class="ext-panel">
+            <div class="ext-panel-header">
+              <span class="ext-logo">🏡</span>
+              <span class="ext-title">StaySummary</span>
+              <span class="ext-badge-ai">AI</span>
+            </div>
+
+            <div class="ext-listing-title">Cozy Studio · Williamsburg, Brooklyn</div>
+
+            <div class="ext-scores">
+              <div class="ext-score-item">
+                <span class="score-label">Host</span>
+                <span class="score-value score-high">8.4<span class="score-denom">/10</span></span>
+              </div>
+              <div class="ext-score-sep"></div>
+              <div class="ext-score-item">
+                <span class="score-label">Safety</span>
+                <span class="score-value score-mid">7.1<span class="score-denom">/10</span></span>
+              </div>
+              <div class="ext-score-sep"></div>
+              <div class="ext-score-item">
+                <span class="score-label">Value</span>
+                <span class="score-value score-mid">6.8<span class="score-denom">/10</span></span>
+              </div>
+            </div>
+
+            <div class="ext-tabs">
+              <button class="ext-tab ext-tab-active">Summary</button>
+              <button class="ext-tab">Neighborhood</button>
+              <button class="ext-tab">Compare</button>
+            </div>
+
+            <div class="ext-section">
+              <div class="ext-section-label pros">✓ Pros</div>
+              <ul class="ext-list ext-pros">
+                <li>Exactly as described in photos</li>
+                <li>Fast &amp; seamless check-in process</li>
+                <li>Great location near subway</li>
+              </ul>
+            </div>
+
+            <div class="ext-section">
+              <div class="ext-section-label cons">✗ Cons</div>
+              <ul class="ext-list ext-cons">
+                <li>Noisy street — light sleepers beware</li>
+                <li>Bathroom smaller than it appears</li>
+              </ul>
+            </div>
+
+            <div class="ext-section">
+              <div class="ext-section-label redflag">⚑ Red Flag</div>
+              <div class="ext-redflag-item">
+                Multiple guests mention misleading photos of the living area
+              </div>
+            </div>
+
+            <div class="ext-neighborhood">
+              <div class="ext-neighborhood-header">
+                <span class="nbhd-name">Williamsburg</span>
+                <span class="nbhd-vibe">Lively arts district</span>
+              </div>
+              <div class="nbhd-note">⚠️ Street noise after 11pm · Close to L train · Strong café scene</div>
+            </div>
+
+            <div class="ext-footer">
+              <span class="ext-source">Airbnb · 143 reviews analyzed</span>
+              <span class="ext-powered">Powered by Claude AI</span>
+            </div>
+          </div>
+
+          <div class="mockup-glow"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PLATFORM STRIP
+    ============================================================ -->
+    <section class="platforms section-pad-sm" id="platforms">
+      <div class="container">
+        <div class="platforms-inner reveal">
+          <span class="platforms-label">Works on 7 platforms:</span>
+          <div class="platforms-list">
+            <span class="platform-tag">Airbnb</span>
+            <span class="platform-sep">·</span>
+            <span class="platform-tag">Booking.com</span>
+            <span class="platform-sep">·</span>
+            <span class="platform-tag">VRBO</span>
+            <span class="platform-sep">·</span>
+            <span class="platform-tag">Expedia</span>
+            <span class="platform-sep">·</span>
+            <span class="platform-tag">Hotels.com</span>
+            <span class="platform-sep">·</span>
+            <span class="platform-tag">TripAdvisor</span>
+            <span class="platform-sep">·</span>
+            <span class="platform-tag">Agoda</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROBLEM
+    ============================================================ -->
+    <section class="problem section-pad">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">You're booking blind.</h2>
+          <p class="section-sub">The information you need is buried in hundreds of reviews. Nobody has time for that.</p>
+        </div>
+        <div class="problem-grid">
+          <div class="problem-card reveal">
+            <div class="problem-icon">📚</div>
+            <h3>Too Many Reviews</h3>
+            <p>200+ reviews per listing. You can't read them all before your booking window closes.</p>
+          </div>
+          <div class="problem-card reveal reveal-delay-1">
+            <div class="problem-icon">🎭</div>
+            <h3>Hosts Cherry-Pick</h3>
+            <p>The featured reviews are always the best ones. The complaints are buried on page 8.</p>
+          </div>
+          <div class="problem-card reveal reveal-delay-2">
+            <div class="problem-icon">⭐</div>
+            <h3>Ratings Are Useless</h3>
+            <p>4.8 stars on Airbnb is table stakes. Every listing has 4.8 stars.</p>
+          </div>
+          <div class="problem-card reveal reveal-delay-3">
+            <div class="problem-icon">🗺️</div>
+            <h3>You Don't Know the Neighborhood</h3>
+            <p>Is it actually walkable? Is it safe at night? Reviews mention it — but you'd have to read 200 to find out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FEATURES
+    ============================================================ -->
+    <section class="features section-pad" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Everything you need to book smarter.</h2>
+          <p class="section-sub">StaySummary turns a wall of reviews into a clear, honest decision brief.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Review Summary</h3>
+            <p>Pros, cons, red flags extracted from every review. Done in seconds.</p>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">🏘️</div>
+            <h3>Neighborhood Guide</h3>
+            <p>AI synthesizes review mentions of the area into a neighborhood brief: vibe, food, transit, safety tips.</p>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon">🔒</div>
+            <h3>Safety Score</h3>
+            <p>Combines FBI crime data, OpenStreetMap safety infrastructure, and review sentiment into a single safety score.</p>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-3">
+            <div class="feature-icon">👤</div>
+            <h3>Host Reliability Score</h3>
+            <p>Pattern-detects responsiveness, accuracy, and consistency issues mentioned across reviews.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">💰</div>
+            <h3>Value Assessment</h3>
+            <p>Is the price fair for what you get? StaySummary evaluates price vs. review quality so you're never overpaying.</p>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">⚖️</div>
+            <h3>Compare Mode</h3>
+            <p>Save multiple listings and compare their scores side-by-side before deciding. Available on Pro.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section class="how-it-works section-pad" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Up and running in 30 seconds.</h2>
+          <p class="section-sub">No account required. No configuration. Just install and go.</p>
+        </div>
+        <div class="steps-grid">
+
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <div class="step-connector"></div>
+            <h3>Browse a listing</h3>
+            <p>Open any property on Airbnb, Booking.com, VRBO, or 4 more supported platforms.</p>
+          </div>
+
+          <div class="step reveal reveal-delay-1">
+            <div class="step-num">02</div>
+            <div class="step-connector"></div>
+            <h3>Click StaySummary</h3>
+            <p>The AI reads every review and generates your complete summary automatically in seconds.</p>
+          </div>
+
+          <div class="step reveal reveal-delay-2">
+            <div class="step-num">03</div>
+            <div class="step-connector step-connector-last"></div>
+            <h3>Book with confidence</h3>
+            <p>You know the pros, cons, safety score, and neighborhood before you commit your money.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING
+    ============================================================ -->
+    <section class="pricing section-pad" id="pricing">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Simple, honest pricing.</h2>
+          <p class="section-sub">Start free. Upgrade when you need unlimited summaries.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="pricing-card reveal">
+            <div class="pricing-plan">Free</div>
+            <div class="pricing-price">
+              <span class="price-amount">$0</span>
+              <span class="price-period">/mo</span>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                3 summaries per month
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                AI pros, cons &amp; red flags
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                Host &amp; safety scores
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                Neighborhood guide
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                All 7 platforms
+              </li>
+              <li>
+                <span class="pf-icon pf-dash">—</span>
+                Compare mode
+              </li>
+              <li>
+                <span class="pf-icon pf-dash">—</span>
+                Priority support
+              </li>
+            </ul>
+            <button class="btn btn-outline btn-full cta-trigger">Get Started Free</button>
+          </div>
+
+          <div class="pricing-card pricing-card-featured reveal reveal-delay-1">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-plan">Pro</div>
+            <div class="pricing-price">
+              <span class="price-amount">$4.99</span>
+              <span class="price-period">/mo</span>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                <strong>Unlimited</strong> summaries
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                AI pros, cons &amp; red flags
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                Host &amp; safety scores
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                Neighborhood guide
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                All 7 platforms
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                <strong>Compare mode</strong>
+              </li>
+              <li>
+                <span class="pf-icon pf-check">✓</span>
+                Priority support
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-full cta-trigger">Start Pro — $4.99/mo</button>
+          </div>
+
+        </div>
+        <p class="pricing-note reveal">No credit card required for Free plan. Cancel Pro anytime.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+    ============================================================ -->
+    <section class="faq section-pad">
+      <div class="container faq-container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Frequently asked questions.</h2>
+        </div>
+
+        <div class="faq-list">
+
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              Does it work on Airbnb outside the US?
+              <span class="faq-chevron">▾</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes — StaySummary works on Airbnb globally and supports multiple languages. The AI summary adapts to the review language, and neighborhood data is pulled from OpenStreetMap which has worldwide coverage.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              How is the safety score calculated?
+              <span class="faq-chevron">▾</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                The safety score combines three signals: neighborhood crime data (FBI UCR for US properties), nearby safety infrastructure from OpenStreetMap (lighting, transit, foot traffic indicators), and safety-related sentiment extracted from guest reviews. Each signal is weighted and normalized into a 1–10 score.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" aria-expanded="false">
+              Do I need an account?
+              <span class="faq-chevron">▾</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No — the free tier (3 summaries/month) requires no account or signup. Just install the extension and start summarizing. An account is only needed if you upgrade to Pro.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question" aria-expanded="false">
+              Is my browsing data private?
+              <span class="faq-chevron">▾</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. StaySummary only reads data on listing pages you actively visit and request a summary for. No personal data, browsing history, or other page data is ever collected or stored. Review text is sent to Claude AI to generate the summary, then discarded — it is never retained on our servers.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              Does it work on Hotels.com and Expedia too?
+              <span class="faq-chevron">▾</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes — all 7 platforms are fully supported: Airbnb, Booking.com, VRBO, Expedia, Hotels.com, TripAdvisor, and Agoda. We actively maintain compatibility with each platform as they update their layouts.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BANNER
+    ============================================================ -->
+    <section class="cta-banner section-pad">
+      <div class="container">
+        <div class="cta-banner-inner reveal">
+          <h2 class="cta-banner-title">Stop booking blind.</h2>
+          <p class="cta-banner-sub">3 free summaries every month. No credit card required.</p>
+          <button class="btn btn-primary btn-xl cta-trigger">Add to Chrome — It's Free</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span>🏡</span>
+        <span>StaySummary</span>
+      </div>
+      <nav class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="mailto:hello@staysummary.io">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2026 StaySummary</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

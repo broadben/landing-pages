@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PropPull — Pull Property Data in One Click</title>
+  <meta name="description" content="Stop copy-pasting from Zillow, Redfin, and county records. PropPull scrapes 18 property fields in one click and sends them straight to your spreadsheet or DocuSign." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <span class="logo-icon">🏠</span>
+      <span>PropPull</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="btn btn-primary btn-sm nav-cta" href="#pricing">Add to Chrome — Free</a>
+  </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-copy">
+        <div class="badge">Chrome Extension · Real Estate</div>
+        <h1>Stop copy-pasting.<br/>Pull property data<br/><span class="gradient-text">in one click.</span></h1>
+        <p class="hero-sub">
+          PropPull scrapes Zillow, Redfin, and Realtor.com — price, beds, taxes, last sale, and 14 more fields — directly into a clean sidebar. Export to Google Sheets or send via DocuSign without leaving your browser.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#pricing">
+            Add to Chrome — It's Free
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#how-it-works">See how it works →</a>
+        </div>
+        <div class="hero-social-proof">
+          <div class="proof-avatars">
+            <span class="avatar">🧑</span>
+            <span class="avatar">👩</span>
+            <span class="avatar">👨</span>
+            <span class="avatar">🧑</span>
+          </div>
+          <span>Used by agents &amp; investors to save <strong>30+ min per deal</strong></span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="browser-chrome">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-url">zillow.com/homedetails/123-main-st…</div>
+          </div>
+          <div class="browser-body">
+
+            <!-- Fake sidebar panel -->
+            <div class="mock-sidebar">
+              <div class="mock-header">
+                <div class="mock-logo">🏠 PropPull</div>
+                <div class="mock-rescrape">↻</div>
+              </div>
+              <div class="mock-tabs">
+                <span class="mock-tab active">Property</span>
+                <span class="mock-tab">Saved (3)</span>
+                <span class="mock-tab">Settings</span>
+              </div>
+
+              <div class="mock-source-bar">
+                <span class="mock-badge zillow">Zillow</span>
+                <span class="mock-time">Scraped just now</span>
+              </div>
+
+              <div class="mock-hero-data">
+                <div class="mock-address">123 Maple Street</div>
+                <div class="mock-city">Springfield, IL 62701</div>
+                <div class="mock-price-row">
+                  <span class="mock-price">$347,000</span>
+                  <span class="mock-ppsf">$239/sqft</span>
+                </div>
+                <div class="mock-stats">
+                  <div class="mock-stat"><strong>4</strong><span>Beds</span></div>
+                  <div class="mock-stat"><strong>2.5</strong><span>Baths</span></div>
+                  <div class="mock-stat"><strong>1,452</strong><span>Sqft</span></div>
+                  <div class="mock-stat"><strong>8d</strong><span>DOM</span></div>
+                </div>
+                <div class="mock-bar-wrap">
+                  <div class="mock-bar"><div class="mock-bar-fill" style="width:78%"></div></div>
+                  <div class="mock-bar-label">14 of 18 fields scraped</div>
+                </div>
+              </div>
+
+              <div class="mock-actions">
+                <button class="mock-btn primary">💾 Save</button>
+                <button class="mock-btn secondary">📋 Copy</button>
+                <button class="mock-btn success">📊 Sheet</button>
+                <button class="mock-btn docusign">✍ DocuSign</button>
+              </div>
+
+              <div class="mock-fields">
+                <div class="mock-field"><span class="dot green"></span><span>Annual Taxes</span><strong>$5,220</strong></div>
+                <div class="mock-field"><span class="dot green"></span><span>Year Built</span><strong>1994</strong></div>
+                <div class="mock-field"><span class="dot green"></span><span>Last Sold</span><strong>$291k · 2019</strong></div>
+                <div class="mock-field"><span class="dot green"></span><span>Zestimate</span><strong>$351,400</strong></div>
+                <div class="mock-field"><span class="dot yellow"></span><span>HOA Fee</span><strong>—</strong></div>
+              </div>
+            </div>
+            <!-- /sidebar -->
+
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="float-badge badge-top">
+          <span>⚡</span> Scraped in &lt;1 second
+        </div>
+        <div class="float-badge badge-bottom">
+          <span>✅</span> Sent to DocuSign
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Logo strip ───────────────────────────────────────────────────────────── -->
+<section class="logo-strip">
+  <div class="container">
+    <p class="logo-strip-label">Works on</p>
+    <div class="logo-strip-logos">
+      <span class="site-logo zillow-logo">Zillow</span>
+      <span class="divider">·</span>
+      <span class="site-logo redfin-logo">Redfin</span>
+      <span class="divider">·</span>
+      <span class="site-logo realtor-logo">Realtor.com</span>
+      <span class="divider">·</span>
+      <span class="site-logo">Google Sheets</span>
+      <span class="divider">·</span>
+      <span class="site-logo ds-logo">DocuSign</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Problem ──────────────────────────────────────────────────────────────── -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="section-label">The old way</div>
+    <h2>You're losing 30 minutes<br/>on every single deal.</h2>
+    <p class="section-sub">Real estate agents and investors juggle 5+ tabs to build one property record. It's manual, error-prone, and it never stops.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">📋</div>
+        <h3>Tab 1: MLS / Zillow</h3>
+        <p>Copy price, beds, baths, days on market. Paste into spreadsheet. Switch tabs.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🏛️</div>
+        <h3>Tab 2: County Tax Records</h3>
+        <p>Search the assessor site. Find annual taxes. Copy assessed value. Paste. Switch tabs.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📊</div>
+        <h3>Tab 3: Your Spreadsheet</h3>
+        <p>Re-format everything. Discover you copied the wrong sqft. Go back. Start over.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">✍️</div>
+        <h3>Tab 4: DocuSign / zipForms</h3>
+        <p>Re-type the same address and price you just looked up. Send for signature. Finally.</p>
+      </div>
+    </div>
+
+    <div class="vs-divider">
+      <span>PropPull does all of this in one click.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Features ─────────────────────────────────────────────────────────────── -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2>Everything in one sidebar.</h2>
+    <p class="section-sub">No new platform to learn. PropPull lives in your browser and works while you browse.</p>
+
+    <div class="features-grid">
+
+      <div class="feature-card featured">
+        <div class="feature-icon">⚡</div>
+        <h3>18-Field Instant Scrape</h3>
+        <p>Price, beds, baths, sqft, lot size, year built, DOM, taxes, HOA, last sale, Zestimate, and more — pulled the moment you land on a listing page.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>One-Click DocuSign</h3>
+        <p>Enter a signer's name and email. PropPull builds a formatted property summary and sends it as a DocuSign envelope — no copy-pasting required.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Push to Google Sheets</h3>
+        <p>Connect once via Apps Script. Every saved property appends a new row automatically. Build your deal pipeline without touching a keyboard.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">✏️</div>
+        <h3>Editable Before You Save</h3>
+        <p>Every scraped field is editable inline. Correct a bad scrape or add notes before pushing to your sheet or sending for signature.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📂</div>
+        <h3>Local Property List</h3>
+        <p>Save properties to a built-in list stored in your browser. Export the whole list as CSV anytime — no account, no cloud, no vendor lock-in.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Works on SPAs</h3>
+        <p>Zillow and Redfin load new listings without full page reloads. PropPull detects navigation changes and re-scrapes automatically.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── How it works ─────────────────────────────────────────────────────────── -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2>Three steps. That's it.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-body">
+          <h3>Browse a listing</h3>
+          <p>Navigate to any property page on Zillow, Redfin, or Realtor.com. PropPull detects it automatically.</p>
+        </div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-body">
+          <h3>Data appears instantly</h3>
+          <p>The sidebar populates with up to 18 fields scraped from the page. Edit anything that needs a correction.</p>
+        </div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-body">
+          <h3>Save, export, or send</h3>
+          <p>Push to your Google Sheet, copy a formatted summary, or fire a DocuSign envelope — all without leaving the listing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Who it's for ─────────────────────────────────────────────────────────── -->
+<section class="audience">
+  <div class="container">
+    <div class="section-label">Who it's for</div>
+    <h2>Built for the people doing<br/>the most repetitive work in real estate.</h2>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-icon">🏚️</div>
+        <h3>Wholesalers</h3>
+        <p>Analyzing 20+ leads a day? PropPull cuts your per-property research time from 20 minutes to 2. Build your comp sheets without the grind.</p>
+        <div class="audience-quote">"I was spending half my day in county assessor tabs."</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🔨</div>
+        <h3>Fix &amp; Flip Investors</h3>
+        <p>Get every acquisition data point — taxes, last sale, DOM, estimated value — pre-filled in your deal analysis spreadsheet automatically.</p>
+        <div class="audience-quote">"I always had the wrong sqft in my ARV calc."</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🤝</div>
+        <h3>Listing Agents</h3>
+        <p>Pull comps faster, send property summaries for client acknowledgment via DocuSign, and keep your CMA data accurate without retyping.</p>
+        <div class="audience-quote">"CMAs used to take me 45 minutes. Now it's 10."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ──────────────────────────────────────────────────────────────── -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <h2>Start free. Upgrade when you're hooked.</h2>
+    <p class="section-sub">No credit card required to try it.</p>
+
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-plan">Free</div>
+        <div class="pricing-price">$0<span>/mo</span></div>
+        <div class="pricing-desc">For agents doing a handful of deals a month who just want to try it.</div>
+        <ul class="pricing-features">
+          <li>✓ Scrape up to 5 listings/day</li>
+          <li>✓ 18-field data extraction</li>
+          <li>✓ Copy to clipboard</li>
+          <li>✓ Save up to 10 properties</li>
+          <li class="muted">✗ Google Sheets export</li>
+          <li class="muted">✗ DocuSign sends</li>
+          <li class="muted">✗ Unlimited saves</li>
+        </ul>
+        <a class="btn btn-outline btn-lg" href="#" id="cta-free">Add to Chrome — Free</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-plan">Pro</div>
+        <div class="pricing-price">$29<span>/mo</span></div>
+        <div class="pricing-desc">For active investors and agents running 5+ deals at a time.</div>
+        <ul class="pricing-features">
+          <li>✓ Unlimited scrapes</li>
+          <li>✓ 18-field data extraction</li>
+          <li>✓ Copy to clipboard</li>
+          <li>✓ Unlimited saved properties</li>
+          <li>✓ <strong>Push to Google Sheets</strong></li>
+          <li>✓ <strong>Send via DocuSign</strong></li>
+          <li>✓ CSV export of all saved properties</li>
+        </ul>
+        <a class="btn btn-primary btn-lg" href="#" id="cta-pro">Get Pro — $29/mo</a>
+        <div class="pricing-footnote">Cancel anytime. 7-day free trial.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────────────────── -->
+<section class="faq">
+  <div class="container faq-inner">
+    <div class="section-label">FAQ</div>
+    <h2>Common questions.</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Does this work on MLS portals?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          PropPull works on the public-facing property pages of Zillow, Redfin, and Realtor.com. MLS data behind agent logins isn't currently supported — but for most research workflows, these sources cover everything you need.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Does it pull county tax records directly?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          Tax data (annual taxes, assessed value) is scraped from property pages on Zillow and Redfin when they display it. Direct county assessor scraping is on the roadmap.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How does the DocuSign integration work?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          PropPull connects to your existing DocuSign account via OAuth. When you click "Send via DocuSign," it creates a formatted property summary document and sends it as an envelope to whoever you specify. You'll need a DocuSign account (free developer accounts are available).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Is my data stored anywhere?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          All scraped property data is stored locally in your browser's storage — never on our servers. The only external calls are when you explicitly export to Google Sheets (your webhook) or send via DocuSign.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Will it break when Zillow updates their site?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          PropPull uses multiple fallback selectors for each field, so minor DOM changes won't break it. If Zillow does a major redesign, we push an update to the Chrome Web Store — typically within 48 hours.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can I use this for commercial real estate?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-a">
+          PropPull is optimized for residential properties today. Commercial support (LoopNet, Crexi) is on the roadmap. If that's important to you, let us know — it helps us prioritize.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA Banner ───────────────────────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Start saving 30 minutes per deal today.</h2>
+    <p>Free to install. No credit card required.</p>
+    <a class="btn btn-primary btn-xl" href="#" id="cta-bottom">Add to Chrome — It's Free</a>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <span class="logo-icon">🏠</span>
+      <span>PropPull</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="mailto:hello@proppull.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 PropPull. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

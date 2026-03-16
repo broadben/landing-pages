@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSummary — Stop reading hundreds of reviews. Get the truth in 10 seconds.</title>
+  <meta name="description" content="ShopSummary uses AI to analyze every review on Amazon, Walmart, Target and 9 more retailers — then gives you pros, cons, red flags, and a quality score. Instantly." />
+  <meta name="theme-color" content="#FF9800" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ShopSummary — AI-Powered Product Review Summarizer" />
+  <meta property="og:description" content="Stop reading hundreds of reviews. Get the truth in 10 seconds." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       NAV
+       ════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+
+        <a href="#" class="nav__logo" aria-label="ShopSummary home">
+          <span class="nav__logo-icon">🛒</span>
+          Shop<span>Summary</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#retailers">Retailers</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+
+        <div class="nav__cta">
+          <a href="#pricing" class="btn btn-ghost" style="padding:9px 18px;font-size:14px;">Pricing</a>
+          <a href="#" class="btn btn-primary cta-link" style="padding:9px 18px;font-size:14px;">Add to Chrome — Free</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu drawer -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#features" class="mobile-nav-link">Features</a>
+    <a href="#how-it-works" class="mobile-nav-link">How it works</a>
+    <a href="#retailers" class="mobile-nav-link">Retailers</a>
+    <a href="#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="#" class="btn btn-primary cta-link" style="margin-top:8px;justify-content:center;">Add to Chrome — Free</a>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg-blob hero__bg-blob--1"></div>
+      <div class="hero__bg-blob hero__bg-blob--2"></div>
+      <div class="hero__bg-grid"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero__inner">
+
+        <!-- Left: copy -->
+        <div class="hero__copy">
+          <div class="hero__badge reveal">
+            <span class="tag">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="#FF9800" opacity="0.25"/><circle cx="6" cy="6" r="2.5" fill="#FF9800"/></svg>
+              Chrome Extension &nbsp;·&nbsp; Shopping
+            </span>
+          </div>
+
+          <h1 class="hero__h1 reveal reveal-delay-1">
+            Stop reading hundreds of&nbsp;reviews.<br>
+            Get the truth in&nbsp;<span class="hero__gradient">10&nbsp;seconds.</span>
+          </h1>
+
+          <p class="hero__sub reveal reveal-delay-2">
+            ShopSummary uses AI to analyze every review on Amazon, Walmart, Target and 9 more retailers — then gives you pros, cons, red flags, and a quality score. Instantly.
+          </p>
+
+          <div class="hero__ctas reveal reveal-delay-3">
+            <a href="#" class="btn btn-primary btn-lg cta-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Add to Chrome — It's Free
+            </a>
+            <a href="#how-it-works" class="btn btn-ghost btn-lg">
+              See how it works&nbsp;→
+            </a>
+          </div>
+
+          <div class="hero__social-proof reveal reveal-delay-4">
+            <div class="hero__avatars" aria-hidden="true">
+              <div class="hero__avatar">S</div>
+              <div class="hero__avatar">M</div>
+              <div class="hero__avatar">J</div>
+              <div class="hero__avatar">K</div>
+              <div class="hero__avatar">R</div>
+            </div>
+            <span>Join shoppers saving hours every week</span>
+          </div>
+        </div>
+
+        <!-- Right: extension mockup -->
+        <div class="hero__mockup-wrap reveal reveal-delay-2">
+          <div class="mockup" role="img" aria-label="ShopSummary extension panel preview">
+            <div class="mockup__glow" aria-hidden="true"></div>
+
+            <div class="mockup__header">
+              <div class="mockup__logo" aria-hidden="true">🛒</div>
+              <div>
+                <div class="mockup__product-name">Wireless Noise-Cancelling Headphones</div>
+                <div class="mockup__product-meta">
+                  <span>$89.99</span>
+                  <span aria-hidden="true">·</span>
+                  <span class="mockup__star" aria-label="4.2 stars">★ 4.2</span>
+                  <span aria-hidden="true">·</span>
+                  <span>2,847 reviews</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mockup__scores" role="group" aria-label="Product scores">
+              <div class="mockup__score score-quality">
+                <div class="mockup__score-label">Quality</div>
+                <div class="mockup__score-value">8.1<span>/10</span></div>
+              </div>
+              <div class="mockup__score score-value">
+                <div class="mockup__score-label">Value</div>
+                <div class="mockup__score-value">7.4<span>/10</span></div>
+              </div>
+              <div class="mockup__score score-auth">
+                <div class="mockup__score-label">Authentic</div>
+                <div class="mockup__score-value">9.2<span>/10</span></div>
+              </div>
+            </div>
+
+            <div class="mockup__section">
+              <div class="mockup__section-title">Pros</div>
+              <ul class="mockup__list mockup__list--pros" aria-label="Product pros">
+                <li>Excellent active noise cancellation for the price</li>
+                <li>Comfortable over-ear fit for long sessions</li>
+                <li>Battery life consistently exceeds claimed 30 hrs</li>
+              </ul>
+            </div>
+
+            <div class="mockup__section">
+              <div class="mockup__section-title">Cons</div>
+              <ul class="mockup__list mockup__list--cons" aria-label="Product cons">
+                <li>Microphone quality disappoints on calls</li>
+                <li>Carrying case feels flimsy for the price</li>
+              </ul>
+            </div>
+
+            <div class="mockup__footer">
+              <span class="mockup__badge mockup__badge--red" aria-label="1 red flag detected">
+                ⚠ 1 Red Flag
+              </span>
+              <span class="mockup__badge mockup__badge--source">
+                Amazon · 2,847 reviews analyzed
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       RETAILER STRIP
+       ════════════════════════════════════════════ -->
+  <section class="retailers" id="retailers" aria-label="Supported retailers">
+    <div class="container">
+      <div class="retailers__inner">
+        <span class="retailers__label">Works on 12 retailers:</span>
+        <ul class="retailers__list" role="list">
+          <li><span class="retailer-badge">Amazon</span></li>
+          <li><span class="retailer-badge">Walmart</span></li>
+          <li><span class="retailer-badge">Target</span></li>
+          <li><span class="retailer-badge">Best Buy</span></li>
+          <li><span class="retailer-badge">Home Depot</span></li>
+          <li><span class="retailer-badge">Wayfair</span></li>
+          <li><span class="retailer-badge">Newegg</span></li>
+          <li><span class="retailer-badge">Etsy</span></li>
+          <li><span class="retailer-badge">eBay</span></li>
+          <li><span class="retailer-badge">Costco</span></li>
+          <li><span class="retailer-badge">Lowe's</span></li>
+          <li><span class="retailer-badge">B&amp;H</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       PROBLEM
+       ════════════════════════════════════════════ -->
+  <section class="problem" aria-labelledby="problem-title">
+    <div class="container">
+      <h2 class="problem__title reveal" id="problem-title">
+        You're making expensive decisions<br>based on <em>fake reviews.</em>
+      </h2>
+
+      <div class="problem__grid">
+        <div class="problem-card reveal">
+          <div class="problem-card__icon" aria-hidden="true">📚</div>
+          <h3 class="problem-card__title">100s of Reviews</h3>
+          <p class="problem-card__body">It takes 20 minutes to read enough reviews to feel confident. You still miss the important ones.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-card__icon" aria-hidden="true">🤖</div>
+          <h3 class="problem-card__title">Fake Reviews Everywhere</h3>
+          <p class="problem-card__body">Paid reviews inflate ratings. You can't tell what's real without spending hours cross-referencing sources.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-card__icon" aria-hidden="true">⭐</div>
+          <h3 class="problem-card__title">Star Ratings Lie</h3>
+          <p class="problem-card__body">4.2 stars could mean great product or mediocre-but-cheap. The number tells you nothing about quality.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-card__icon" aria-hidden="true">💸</div>
+          <h3 class="problem-card__title">Different Price, Same Product?</h3>
+          <p class="problem-card__body">The same item is often $20 cheaper somewhere else. You'd never know unless you checked all 12 retailers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FEATURES
+       ════════════════════════════════════════════ -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <div class="features__head">
+        <p class="section-label">Everything you need</p>
+        <h2 class="section-title reveal" id="features-title">Know before you buy.</h2>
+        <p class="section-sub reveal reveal-delay-1" style="margin:0 auto;">Six powerful tools packed into one lightweight Chrome extension.</p>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature-card reveal">
+          <span class="feature-card__icon" aria-hidden="true">⚡</span>
+          <h3 class="feature-card__title">Instant AI Summary</h3>
+          <p class="feature-card__body">Pros, cons, red flags, and scores generated in seconds from every review on the page. Powered by Claude.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <span class="feature-card__icon" aria-hidden="true">🔍</span>
+          <h3 class="feature-card__title">Fake Review Detection</h3>
+          <p class="feature-card__body">Authenticity score flags suspicious review patterns — padding, incentivized reviews, and coordinated review bombing.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <span class="feature-card__icon" aria-hidden="true">📊</span>
+          <h3 class="feature-card__title">Quality &amp; Value Scores</h3>
+          <p class="feature-card__body">Numeric scores out of 10 for Quality, Durability, and Value so you can compare products at a glance.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <span class="feature-card__icon" aria-hidden="true">📈</span>
+          <h3 class="feature-card__title">Price History (Amazon)</h3>
+          <p class="feature-card__body">See the last 12 months of price data via CamelCamelCamel. Know if that "sale" price is actually a deal.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <span class="feature-card__icon" aria-hidden="true">⚖️</span>
+          <h3 class="feature-card__title">Compare Mode</h3>
+          <p class="feature-card__body">Open multiple products and view their scores side-by-side in a comparison table. Pick the winner confidently.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <span class="feature-card__icon" aria-hidden="true">🌐</span>
+          <h3 class="feature-card__title">12 Retailers</h3>
+          <p class="feature-card__body">Amazon, Walmart, Target, Best Buy, Home Depot, Wayfair, Newegg, Etsy, eBay, Costco, Lowe's &amp; B&amp;H. One extension.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       HOW IT WORKS
+       ════════════════════════════════════════════ -->
+  <section class="how" id="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <div class="how__head">
+        <p class="section-label">Dead simple</p>
+        <h2 class="section-title reveal" id="how-title">Up and running in 30 seconds.</h2>
+        <p class="section-sub reveal reveal-delay-1" style="margin:0 auto;">Three steps from install to your first AI summary.</p>
+      </div>
+
+      <div class="how__steps">
+        <div class="how-step reveal">
+          <div class="how-step__num" aria-hidden="true">1</div>
+          <h3 class="how-step__title">Browse any product</h3>
+          <p class="how-step__body">Navigate to a product page on any of the 12 supported retailers. Amazon, Walmart, Target — wherever you shop.</p>
+        </div>
+
+        <div class="how-step reveal reveal-delay-1">
+          <div class="how-step__num" aria-hidden="true">2</div>
+          <h3 class="how-step__title">Click ShopSummary</h3>
+          <p class="how-step__body">The AI panel opens and analyzes every visible review automatically. No copying, no pasting, no prompting.</p>
+        </div>
+
+        <div class="how-step reveal reveal-delay-2">
+          <div class="how-step__num" aria-hidden="true">3</div>
+          <h3 class="how-step__title">Shop with confidence</h3>
+          <p class="how-step__body">Read the summary, check the scores, spot the red flags. Done. In under 10 seconds, you know more than an hour of reading.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       PRICING
+       ════════════════════════════════════════════ -->
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="pricing__head">
+        <p class="section-label">Simple pricing</p>
+        <h2 class="section-title reveal" id="pricing-title">Free to start. Upgrade when ready.</h2>
+        <p class="section-sub reveal reveal-delay-1" style="margin:0 auto;">No credit card required to get started.</p>
+      </div>
+
+      <div class="pricing__cards">
+
+        <!-- Free -->
+        <div class="pricing-card pricing-card--free reveal">
+          <div class="pricing-card__tier">Free</div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">$0</span>
+            <span class="pricing-card__price-period">/mo</span>
+          </div>
+          <p class="pricing-card__price-yearly">&nbsp;</p>
+
+          <div class="pricing-card__divider"></div>
+
+          <ul class="pricing-card__features" role="list">
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>3 summaries / month</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>AI pros, cons &amp; red flags</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Quality &amp; value scores</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>All 12 retailers</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Fake review detection</span>
+            </li>
+          </ul>
+
+          <a href="#" class="btn btn-ghost cta-link">Get started — Free</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="pricing-card pricing-card--pro reveal reveal-delay-1">
+          <div class="pricing-card__featured-badge">Most Popular</div>
+
+          <div class="pricing-card__tier">Pro</div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">$4.99</span>
+            <span class="pricing-card__price-period">/mo</span>
+          </div>
+          <p class="pricing-card__price-yearly">or <strong>$49.99/yr</strong> — save 17%</p>
+
+          <div class="pricing-card__divider"></div>
+
+          <ul class="pricing-card__features" role="list">
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span><strong>Unlimited</strong> summaries</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Everything in Free</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Price history charts (Amazon)</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Compare mode (side-by-side)</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Q&amp;A summarizer</span>
+            </li>
+            <li class="pricing-card__feature">
+              <span class="pricing-card__feature-check" aria-hidden="true">✓</span>
+              <span>Priority support</span>
+            </li>
+          </ul>
+
+          <a href="#" class="btn btn-primary cta-link">Get Pro</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FAQ
+       ════════════════════════════════════════════ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="faq__head">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title reveal" id="faq-title">Common questions.</h2>
+      </div>
+
+      <ul class="faq__list reveal" role="list" aria-label="Frequently asked questions">
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            Does ShopSummary work on Amazon.co.uk, .ca, .de?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Yes — ShopSummary supports all major Amazon locales including .com, .co.uk, .ca, .de, .fr, .co.jp, .com.au and more. If Amazon has a product page, ShopSummary can analyze it.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            Does it work without creating an account?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Yes — no account needed to get started. The free tier gives you 3 summaries per month automatically after installing the extension. An account is only required if you upgrade to Pro.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            How does the fake review detection work?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Claude analyzes review language patterns, timing clusters (reviews flooding in on one date), verified purchase ratios, and common indicators of incentivized or paid reviews. The result is an authenticity score out of 10 — higher is more trustworthy.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            Is my shopping data private?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>ShopSummary only reads review data on product pages you actively visit. It does not track your browsing history, collect personal information, or store your purchase data. Review content is sent to our API for analysis and not retained.</p>
+          </div>
+        </li>
+
+        <li class="faq-item" role="listitem">
+          <button class="faq-item__question" aria-expanded="false">
+            What's the difference between ShopSummary and Fakespot?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" role="region">
+            <p>Fakespot grades review authenticity — that's it. ShopSummary does that AND gives you a full AI-generated content summary: pros, cons, red flags, quality score, value score, durability score, price history, and compare mode. It's a complete shopping assistant, not just a fraud detector.</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       CTA BANNER
+       ════════════════════════════════════════════ -->
+  <section class="cta-banner" aria-labelledby="cta-title">
+    <div class="cta-banner__bg" aria-hidden="true">
+      <div class="cta-banner__bg-line"></div>
+      <div class="cta-banner__bg-line cta-banner__bg-line-b"></div>
+    </div>
+    <div class="container">
+      <div class="cta-banner__inner reveal">
+        <h2 class="cta-banner__title" id="cta-title">
+          Start shopping smarter today.
+        </h2>
+        <p class="cta-banner__sub">3 free summaries every month. No credit card required.</p>
+        <a href="#" class="btn btn-primary btn-lg cta-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Add to Chrome — It's Free
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__logo">
+          <span aria-hidden="true">🛒</span>
+          Shop<span>Summary</span>
+        </div>
+
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="mailto:hello@shopsummary.io">Contact</a>
+        </nav>
+
+        <p class="footer__copy">© 2026 ShopSummary</p>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="main.js"></script>
+</body>
+</html>
