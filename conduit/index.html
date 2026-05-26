@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Conduit — The production layer for Model Context Protocol</title>
+  <meta name="description" content="Open-source gateway and observability dashboard for MCP. Auth, audit, rate limits, and traces — without changing your agents or your servers." />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark"></span>
+        <span class="brand-text">Conduit</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#problem">Problem</a>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-ghost" href="#cta">Get notified</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Open-source · Apache 2.0 · Pre-launch</p>
+        <h1>The production layer for<br/>Model Context Protocol.</h1>
+        <p class="lede">
+          An open-source gateway and observability dashboard for AI agents.
+          Auth, audit, rate limits, and traces — without changing your agents or your servers.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#cta">Get on the waitlist</a>
+          <a class="btn btn-secondary" href="#how">See how it works →</a>
+        </div>
+
+        <pre class="hero-code"><code><span class="prompt">$</span> docker run -p 8080:8080 \
+    -v $(pwd)/conduit.yaml:/etc/conduit/config.yaml \
+    ghcr.io/conduit/conduit:latest
+
+<span class="comment"># Point your agent at:</span>
+<span class="comment"># http://localhost:8080</span></code></pre>
+
+        <div class="trust">
+          <p>Works with the tools you already use.</p>
+          <div class="trust-row">
+            <span>Claude Desktop</span>
+            <span>Claude Code</span>
+            <span>Cursor</span>
+            <span>Cline</span>
+            <span>Continue</span>
+            <span>Windsurf</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" class="section">
+      <div class="container">
+        <h2>MCP wasn't built for production. Conduit is.</h2>
+        <div class="three-col">
+          <div class="card">
+            <div class="card-icon">🔓</div>
+            <h3>No auth</h3>
+            <p>Most MCP servers ship wide-open. The ones that don't roll their own bearer-token check. Either way, there's no shared concept of identity, scopes, or rotation.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🌑</div>
+            <h3>No visibility</h3>
+            <p>When an agent does the wrong thing across fourteen tool calls, debugging is <code>grep</code> against console output. There's no trace, no replay, no audit log.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚨</div>
+            <h3>No control</h3>
+            <p>A buggy agent can hammer an upstream API for hours before anyone notices. There's no rate limit, no kill switch, no cost cap.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section section-alt">
+      <div class="container">
+        <h2>One proxy. Every agent. Every server.</h2>
+        <p class="section-lede">
+          Point your agent at Conduit instead of your MCP servers directly. Conduit handles authentication, enforces rate limits, captures every JSON-RPC call, and surfaces it in a dashboard you already know how to read.
+        </p>
+
+        <pre class="architecture"><code>    ┌─────────┐         ┌────────────┐        ┌──────────────┐
+    │  Agent  │  ───▶   │  Conduit   │  ───▶  │ MCP Servers  │
+    └─────────┘         │  Gateway   │        └──────────────┘
+                        └──────┬─────┘
+                               │
+                               ▼
+                        ┌────────────┐
+                        │  Dashboard │
+                        │  + Traces  │
+                        │  + Auth    │
+                        │  + Alerts  │
+                        └────────────┘</code></pre>
+
+        <p class="section-foot">
+          Servers don't change. Agents don't change. You get the production-ops layer for free.
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Everything MCP needs to run in production.</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>🔐 Identity & Auth</h3>
+            <p>API keys, OAuth, scoped tokens per agent. Rotate secrets without redeploying. Inject upstream credentials so your agents never see them.</p>
+          </div>
+          <div class="feature">
+            <h3>📊 Real-time Traces</h3>
+            <p>Every tool call, every argument, every response. Filter by agent, tool, error type. Replay any past call to debug.</p>
+          </div>
+          <div class="feature">
+            <h3>🚦 Rate Limits</h3>
+            <p>Per-tool, per-agent, per-server. Token bucket or sliding window. Kill switches when something's gone wrong.</p>
+          </div>
+          <div class="feature">
+            <h3>📝 Immutable Audit Log</h3>
+            <p>Every call signed, timestamped, retained. Built for the SOC 2 and HIPAA reviews you're going to get asked about.</p>
+          </div>
+          <div class="feature">
+            <h3>💰 Cost Attribution</h3>
+            <p>Track upstream API spend by team, agent, or tool. Find the bug that burned 40% of your monthly LLM bill last week.</p>
+          </div>
+          <div class="feature">
+            <h3>🔌 OpenTelemetry-Native</h3>
+            <p>Export traces to Datadog, Honeycomb, Sentry, or anything OTel-compatible. Conduit is a source, not a silo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELF-HOST VS CLOUD -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Open source first. Managed when you're ready.</h2>
+        <div class="two-col">
+          <div class="card-large">
+            <h3>Self-host</h3>
+            <ul class="check-list">
+              <li>Apache 2.0 licensed</li>
+              <li>Single Docker command</li>
+              <li>Unlimited events, unlimited retention</li>
+              <li>SQLite for solo, Postgres for teams</li>
+              <li>All features, forever free</li>
+            </ul>
+            <a class="btn btn-secondary" href="#cta">Star on GitHub</a>
+          </div>
+          <div class="card-large card-highlight">
+            <h3>Conduit Cloud</h3>
+            <ul class="check-list">
+              <li>Don't want to host? Don't.</li>
+              <li>Generous free tier</li>
+              <li>Team features (SSO, alerts, longer retention)</li>
+              <li>Multi-region, SOC 2-ready</li>
+              <li>Predictable pricing</li>
+            </ul>
+            <a class="btn btn-primary" href="#cta">Join the cloud waitlist</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2>Pricing that scales with you, not against you.</h2>
+        <div class="pricing-table">
+          <div class="price-col">
+            <p class="price-name">Self-host</p>
+            <p class="price-amt">Free</p>
+            <ul>
+              <li>Unlimited events</li>
+              <li>Your retention</li>
+              <li>Unlimited projects</li>
+              <li>Community support</li>
+            </ul>
+          </div>
+          <div class="price-col">
+            <p class="price-name">Cloud Free</p>
+            <p class="price-amt">$0</p>
+            <ul>
+              <li>100K events / mo</li>
+              <li>7 days retention</li>
+              <li>1 project</li>
+              <li>Community support</li>
+            </ul>
+          </div>
+          <div class="price-col price-col-highlight">
+            <p class="price-name">Pro</p>
+            <p class="price-amt">$99<span>/mo</span></p>
+            <ul>
+              <li>10M events / mo</li>
+              <li>30 days retention</li>
+              <li>Unlimited projects</li>
+              <li>Email support, alerts</li>
+            </ul>
+          </div>
+          <div class="price-col">
+            <p class="price-name">Team</p>
+            <p class="price-amt">$499<span>/mo</span></p>
+            <ul>
+              <li>100M events / mo</li>
+              <li>90 days retention</li>
+              <li>SSO, audit retention</li>
+              <li>Slack support</li>
+            </ul>
+          </div>
+        </div>
+        <p class="section-foot">
+          Need more? <strong>Enterprise</strong> tier includes on-prem support, SLA, dedicated engineer, SOC 2 Type II, audit log signing, and custom integrations.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section-alt">
+      <div class="container">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>Will Conduit work with my MCP server?</summary>
+            <p>Yes, if your server speaks MCP over stdio or streamable HTTP. Both transports are supported.</p>
+          </details>
+          <details>
+            <summary>Do I have to change my agent code?</summary>
+            <p>No. Conduit speaks the same wire protocol as any MCP server. Point your agent at Conduit's address and it works.</p>
+          </details>
+          <details>
+            <summary>Will this slow my agent down?</summary>
+            <p>Conduit adds 1–3ms of latency per call on average. Tools that already take 100–2000ms see negligible impact.</p>
+          </details>
+          <details>
+            <summary>Why Apache 2.0?</summary>
+            <p>Permissive licensing is the distribution strategy. We have no plans to relicense. The OSS will always have feature parity for individual and small-team use.</p>
+          </details>
+          <details>
+            <summary>What's the difference between Conduit and Cloudflare AI Gateway?</summary>
+            <p>Cloudflare's gateway is built for LLM API calls (OpenAI, Anthropic, etc.) and is closed source. Conduit is MCP-native, open source, and self-hostable.</p>
+          </details>
+          <details>
+            <summary>Can I run Conduit behind my corporate VPN?</summary>
+            <p>Yes. Self-host gives you full network control. Conduit Cloud Enterprise also supports private deployments.</p>
+          </details>
+          <details>
+            <summary>Do you store my tool-call arguments and responses?</summary>
+            <p>Self-host: stored locally, you control it. Cloud: stored encrypted in your tenant, retention per your plan. You can configure redaction rules for sensitive fields.</p>
+          </details>
+          <details>
+            <summary>Is there an enterprise version?</summary>
+            <p>Yes. Contact us for SOC 2, BAA, on-prem deployment, and custom integrations.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-section">
+      <div class="container">
+        <h2>Stop running MCP in the dark.</h2>
+        <p>Get Conduit when it ships. We'll email you once. No spam.</p>
+        <form class="cta-form" action="#" onsubmit="event.preventDefault(); alert('Connect this to your email provider before launch.');">
+          <input type="email" placeholder="you@company.com" aria-label="Email" required />
+          <button class="btn btn-primary" type="submit">Notify me</button>
+        </form>
+        <p class="cta-foot">
+          ★ Star on GitHub (private at launch) &nbsp;·&nbsp; 💬 Join the Discord (invite-only)
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="brand brand-footer">
+          <span class="brand-mark"></span>
+          <span class="brand-text">Conduit</span>
+        </p>
+        <p class="muted small">Apache 2.0 · © 2026 Conduit</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#how">How it works</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <a href="#" aria-disabled="true">GitHub</a>
+          <a href="#" aria-disabled="true">Discord</a>
+          <a href="#" aria-disabled="true">X / Twitter</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#" aria-disabled="true">About</a>
+          <a href="#" aria-disabled="true">Privacy</a>
+          <a href="#" aria-disabled="true">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
