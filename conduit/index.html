@@ -97,18 +97,179 @@
           Point your agent at Conduit instead of your MCP servers directly. Conduit handles authentication, enforces rate limits, captures every JSON-RPC call, and surfaces it in a dashboard you already know how to read.
         </p>
 
-        <pre class="architecture"><code>    ┌─────────┐         ┌────────────┐        ┌──────────────┐
-    │  Agent  │  ───▶   │  Conduit   │  ───▶  │ MCP Servers  │
-    └─────────┘         │  Gateway   │        └──────────────┘
-                        └──────┬─────┘
-                               │
-                               ▼
-                        ┌────────────┐
-                        │  Dashboard │
-                        │  + Traces  │
-                        │  + Auth    │
-                        │  + Alerts  │
-                        └────────────┘</code></pre>
+        <div class="diagram-wrap">
+          <svg class="diagram" viewBox="0 0 880 480" role="img" aria-label="Conduit architecture: agents talk to Conduit gateway, which routes to MCP servers and records traces to a dashboard." xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradAccent" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#7c5cff"/>
+                <stop offset="100%" stop-color="#a78bfa"/>
+              </linearGradient>
+              <linearGradient id="gradCard" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1d1d22"/>
+                <stop offset="100%" stop-color="#16161a"/>
+              </linearGradient>
+              <linearGradient id="gradConduit" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1f1936"/>
+                <stop offset="100%" stop-color="#1a1626"/>
+              </linearGradient>
+              <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="10" result="b"/>
+                <feMerge>
+                  <feMergeNode in="b"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <!-- Reusable connection paths so animations can ride them -->
+              <path id="path-a1" d="M 160 100 C 230 100, 270 130, 320 140"/>
+              <path id="path-a2" d="M 160 200 L 320 200"/>
+              <path id="path-a3" d="M 160 300 C 230 300, 270 270, 320 260"/>
+              <path id="path-s1" d="M 600 140 C 650 130, 690 100, 760 100"/>
+              <path id="path-s2" d="M 600 200 L 760 200"/>
+              <path id="path-s3" d="M 600 260 C 650 270, 690 300, 760 300"/>
+              <path id="path-d"  d="M 460 380 L 460 410"/>
+            </defs>
+
+            <!-- COLUMN LABELS -->
+            <text x="80" y="40" text-anchor="middle" fill="#6b6b78" font-family="Inter, sans-serif" font-size="11" letter-spacing="1.5" font-weight="600">AGENTS</text>
+            <text x="460" y="40" text-anchor="middle" fill="#6b6b78" font-family="Inter, sans-serif" font-size="11" letter-spacing="1.5" font-weight="600">PROXY</text>
+            <text x="820" y="40" text-anchor="middle" fill="#6b6b78" font-family="Inter, sans-serif" font-size="11" letter-spacing="1.5" font-weight="600">MCP SERVERS</text>
+
+            <!-- CONNECTION LINES -->
+            <g stroke="#7c5cff" stroke-width="1.5" fill="none" opacity="0.45">
+              <use href="#path-a1"/>
+              <use href="#path-a2"/>
+              <use href="#path-a3"/>
+              <use href="#path-s1"/>
+              <use href="#path-s2"/>
+              <use href="#path-s3"/>
+              <use href="#path-d"/>
+            </g>
+
+            <!-- ANIMATED DATA-FLOW DOTS -->
+            <g fill="#a78bfa">
+              <circle r="3.5" opacity="0.95">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="0s">
+                  <mpath href="#path-a1"/>
+                </animateMotion>
+              </circle>
+              <circle r="3.5" opacity="0.95">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+                  <mpath href="#path-a2"/>
+                </animateMotion>
+              </circle>
+              <circle r="3.5" opacity="0.95">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="2s">
+                  <mpath href="#path-a3"/>
+                </animateMotion>
+              </circle>
+              <circle r="3.5" opacity="0.95">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="0.5s">
+                  <mpath href="#path-s2"/>
+                </animateMotion>
+              </circle>
+              <circle r="3.5" opacity="0.95">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s">
+                  <mpath href="#path-s1"/>
+                </animateMotion>
+              </circle>
+              <circle r="3.5" opacity="0.95">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="2.5s">
+                  <mpath href="#path-s3"/>
+                </animateMotion>
+              </circle>
+            </g>
+
+            <!-- AGENTS -->
+            <g font-family="Inter, sans-serif">
+              <g transform="translate(0, 70)">
+                <rect x="0" y="0" width="160" height="60" rx="10" fill="url(#gradCard)" stroke="#26262d"/>
+                <circle cx="20" cy="30" r="4" fill="#4ade80"/>
+                <text x="36" y="35" fill="#ededf0" font-size="13" font-weight="500">Claude Desktop</text>
+              </g>
+              <g transform="translate(0, 170)">
+                <rect x="0" y="0" width="160" height="60" rx="10" fill="url(#gradCard)" stroke="#26262d"/>
+                <circle cx="20" cy="30" r="4" fill="#4ade80"/>
+                <text x="36" y="35" fill="#ededf0" font-size="13" font-weight="500">Cursor</text>
+              </g>
+              <g transform="translate(0, 270)">
+                <rect x="0" y="0" width="160" height="60" rx="10" fill="url(#gradCard)" stroke="#26262d"/>
+                <circle cx="20" cy="30" r="4" fill="#4ade80"/>
+                <text x="36" y="35" fill="#ededf0" font-size="13" font-weight="500">Cline</text>
+              </g>
+            </g>
+
+            <!-- CONDUIT GATEWAY -->
+            <g transform="translate(320, 80)" font-family="Inter, sans-serif" filter="url(#glow)">
+              <rect x="0" y="0" width="280" height="240" rx="16" fill="url(#gradConduit)" stroke="url(#gradAccent)" stroke-width="2"/>
+              <!-- Logo mark -->
+              <rect x="20" y="20" width="22" height="22" rx="6" fill="url(#gradAccent)"/>
+              <text x="52" y="37" fill="#ededf0" font-size="18" font-weight="700" letter-spacing="-0.01em">Conduit</text>
+              <text x="20" y="62" fill="#9a9aa6" font-size="11" letter-spacing="0.04em">GATEWAY · OBSERVABILITY</text>
+
+              <!-- Capability pills -->
+              <g transform="translate(20, 90)">
+                <rect width="115" height="30" rx="15" fill="#26262d" stroke="#33333d"/>
+                <text x="57" y="20" text-anchor="middle" fill="#ededf0" font-size="12">🔐 Auth</text>
+              </g>
+              <g transform="translate(145, 90)">
+                <rect width="115" height="30" rx="15" fill="#26262d" stroke="#33333d"/>
+                <text x="57" y="20" text-anchor="middle" fill="#ededf0" font-size="12">🚦 Rate Limit</text>
+              </g>
+              <g transform="translate(20, 130)">
+                <rect width="115" height="30" rx="15" fill="#26262d" stroke="#33333d"/>
+                <text x="57" y="20" text-anchor="middle" fill="#ededf0" font-size="12">📊 Trace</text>
+              </g>
+              <g transform="translate(145, 130)">
+                <rect width="115" height="30" rx="15" fill="#26262d" stroke="#33333d"/>
+                <text x="57" y="20" text-anchor="middle" fill="#ededf0" font-size="12">📝 Audit</text>
+              </g>
+              <g transform="translate(20, 170)">
+                <rect width="240" height="30" rx="15" fill="#26262d" stroke="#33333d"/>
+                <text x="120" y="20" text-anchor="middle" fill="#ededf0" font-size="12">💰 Cost Attribution</text>
+              </g>
+              <text x="140" y="225" text-anchor="middle" fill="#6b6b78" font-size="10" font-family="ui-monospace, monospace">v0.1 · Apache 2.0</text>
+            </g>
+
+            <!-- MCP SERVERS -->
+            <g font-family="Inter, sans-serif">
+              <g transform="translate(760, 70)">
+                <rect x="0" y="0" width="120" height="60" rx="10" fill="url(#gradCard)" stroke="#26262d"/>
+                <circle cx="18" cy="30" r="4" fill="#4ade80"/>
+                <text x="32" y="35" fill="#ededf0" font-size="13" font-family="ui-monospace, monospace">github</text>
+              </g>
+              <g transform="translate(760, 170)">
+                <rect x="0" y="0" width="120" height="60" rx="10" fill="url(#gradCard)" stroke="#26262d"/>
+                <circle cx="18" cy="30" r="4" fill="#4ade80"/>
+                <text x="32" y="35" fill="#ededf0" font-size="13" font-family="ui-monospace, monospace">postgres</text>
+              </g>
+              <g transform="translate(760, 270)">
+                <rect x="0" y="0" width="120" height="60" rx="10" fill="url(#gradCard)" stroke="#26262d"/>
+                <circle cx="18" cy="30" r="4" fill="#facc15"/>
+                <text x="32" y="35" fill="#ededf0" font-size="13" font-family="ui-monospace, monospace">slack</text>
+              </g>
+            </g>
+
+            <!-- DASHBOARD -->
+            <g transform="translate(280, 410)" font-family="Inter, sans-serif">
+              <rect x="0" y="0" width="360" height="60" rx="12" fill="url(#gradCard)" stroke="#26262d"/>
+              <text x="16" y="22" fill="#ededf0" font-size="12" font-weight="600">📡 Live Traces</text>
+              <text x="100" y="22" fill="#6b6b78" font-size="10" font-family="ui-monospace, monospace">(streaming...)</text>
+
+              <!-- Mini trace rows -->
+              <g transform="translate(16, 32)" font-family="ui-monospace, monospace" font-size="9">
+                <g>
+                  <rect x="0" y="0" width="160" height="8" rx="2" fill="#7c5cff" opacity="0.7"/>
+                  <text x="170" y="7" fill="#9a9aa6">github:create_issue · 142ms</text>
+                </g>
+                <g transform="translate(0, 14)">
+                  <rect x="0" y="0" width="60" height="8" rx="2" fill="#4ade80" opacity="0.7"/>
+                  <text x="170" y="7" fill="#9a9aa6">postgres:query · 38ms</text>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
 
         <p class="section-foot">
           Servers don't change. Agents don't change. You get the production-ops layer for free.

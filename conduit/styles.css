@@ -262,6 +262,41 @@ a:hover { color: var(--accent); }
 }
 
 /* ARCHITECTURE DIAGRAM */
+.diagram-wrap {
+  max-width: 880px;
+  margin: 48px auto 0;
+  padding: 32px 24px;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(124,92,255,0.08) 0%, transparent 70%),
+    var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+.diagram-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,92,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,92,255,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  opacity: 0.4;
+}
+.diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 700px) {
+  .diagram-wrap { padding: 16px 8px; }
+}
+
+/* Legacy ASCII block kept for any other places that might use it */
 .architecture {
   background: var(--code-bg);
   border: 1px solid var(--border);
