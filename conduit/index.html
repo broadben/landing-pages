@@ -18,8 +18,9 @@
         <span class="brand-text">Conduit</span>
       </a>
       <nav class="nav-links">
-        <a href="#problem">Problem</a>
         <a href="#how">How it works</a>
+        <a href="#integrate">Integrate</a>
+        <a href="#preview">Preview</a>
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -286,6 +287,206 @@
 
         <p class="section-foot">
           Servers don't change. Agents don't change. You get the production-ops layer for free.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTEGRATE -->
+    <section id="integrate" class="section">
+      <div class="container">
+        <h2>From zero to traces in 5 minutes.</h2>
+        <p class="section-lede">
+          No SDK changes. No agent rewrites. Drop in the proxy, point your agent at it, watch every call.
+        </p>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-meta">
+              <span class="step-num">01</span>
+              <div>
+                <h3>Run the proxy</h3>
+                <p>One Docker command. No Kubernetes, no Python deps, no install scripts.</p>
+              </div>
+            </div>
+            <pre class="step-code"><code><span class="c-prompt">$</span> docker run -p 8080:8080 \
+    -v $(pwd)/conduit.yaml:/etc/conduit/config.yaml \
+    ghcr.io/conduit/conduit:latest
+
+<span class="c-ok">✓</span> <span class="c-dim">conduit listening on :8080</span>
+<span class="c-ok">✓</span> <span class="c-dim">event store opened (sqlite, ./conduit.db)</span>
+<span class="c-ok">✓</span> <span class="c-dim">auth/ratelimit ready</span></code></pre>
+          </li>
+
+          <li class="step">
+            <div class="step-meta">
+              <span class="step-num">02</span>
+              <div>
+                <h3>Define your upstreams</h3>
+                <p>List the MCP servers Conduit should proxy. Stdio child processes or remote HTTP — your choice.</p>
+              </div>
+            </div>
+            <pre class="step-code"><code><span class="c-key">servers:</span>
+  <span class="c-key">github:</span>
+    <span class="c-key">transport:</span> <span class="c-str">stdio</span>
+    <span class="c-key">command:</span> [<span class="c-str">"npx"</span>, <span class="c-str">"@modelcontextprotocol/server-github"</span>]
+    <span class="c-key">env:</span>
+      <span class="c-key">GITHUB_PERSONAL_ACCESS_TOKEN:</span> <span class="c-var">${secret:github_pat}</span>
+
+<span class="c-key">auth:</span>
+  <span class="c-key">tokens:</span>
+    - <span class="c-key">name:</span> <span class="c-str">claude</span>
+      <span class="c-key">key:</span>  <span class="c-var">${env:CONDUIT_CLAUDE_KEY}</span>
+      <span class="c-key">scopes:</span> [<span class="c-str">"github.*"</span>]</code></pre>
+          </li>
+
+          <li class="step">
+            <div class="step-meta">
+              <span class="step-num">03</span>
+              <div>
+                <h3>Point your agent at Conduit</h3>
+                <p>One URL change. Your agent doesn't know it's not talking to the server directly.</p>
+              </div>
+            </div>
+            <pre class="step-code"><code><span class="c-comment">// ~/.claude/claude_desktop_config.json</span>
+{
+  <span class="c-key">"mcpServers"</span>: {
+    <span class="c-key">"conduit"</span>: {
+      <span class="c-key">"url"</span>: <span class="c-str">"http://localhost:8080"</span>,
+      <span class="c-key">"headers"</span>: {
+        <span class="c-key">"Authorization"</span>: <span class="c-str">"Bearer $CONDUIT_CLAUDE_KEY"</span>
+      }
+    }
+  }
+}</code></pre>
+          </li>
+
+          <li class="step step-result">
+            <div class="step-meta">
+              <span class="step-num">04</span>
+              <div>
+                <h3>Watch every call flow through</h3>
+                <p>Open the dashboard. See traces, latencies, errors, and costs in real time.</p>
+              </div>
+            </div>
+            <a class="step-link" href="#preview">See the dashboard ↓</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PRODUCT PREVIEW -->
+    <section id="preview" class="section section-alt">
+      <div class="container">
+        <h2>Every call. Every argument. Every millisecond.</h2>
+        <p class="section-lede">
+          The dashboard streams traces live and lets you replay any call, search by tool or agent, and watch latency in real time.
+        </p>
+
+        <div class="dash-mock">
+          <div class="dash-chrome">
+            <span class="dash-dot dot-red"></span>
+            <span class="dash-dot dot-yel"></span>
+            <span class="dash-dot dot-grn"></span>
+            <div class="dash-url">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;color:#4ade80"><path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M14 8A6 6 0 1 1 2 8a6 6 0 0 1 12 0Z"/></svg>
+              conduit.local:8080/dashboard
+            </div>
+          </div>
+
+          <div class="dash-body">
+            <aside class="dash-side">
+              <p class="dash-label">SERVERS</p>
+              <ul class="dash-list">
+                <li><span class="dot dot-ok pulse"></span> github <span class="dash-meta">2.1k/hr</span></li>
+                <li><span class="dot dot-ok pulse"></span> postgres <span class="dash-meta">840/hr</span></li>
+                <li><span class="dot dot-warn pulse"></span> slack <span class="dash-meta">12 errs</span></li>
+                <li><span class="dot dot-ok"></span> filesystem <span class="dash-meta">320/hr</span></li>
+              </ul>
+              <p class="dash-label">AGENTS</p>
+              <ul class="dash-list">
+                <li><span class="dot dot-ok"></span> claude-desktop</li>
+                <li><span class="dot dot-ok"></span> cursor-team</li>
+                <li><span class="dot dot-ok"></span> ci-runner</li>
+              </ul>
+            </aside>
+
+            <main class="dash-main">
+              <div class="dash-header">
+                <div>
+                  <h4>Live Traces <span class="live-pill"><span class="live-dot"></span>STREAMING</span></h4>
+                  <p class="dash-sub">2,341 calls in the last hour</p>
+                </div>
+                <div class="dash-stats">
+                  <div class="stat"><span class="stat-num">142<small>ms</small></span><span class="stat-label">p50 latency</span></div>
+                  <div class="stat"><span class="stat-num stat-warn">487<small>ms</small></span><span class="stat-label">p99 latency</span></div>
+                  <div class="stat"><span class="stat-num stat-err">0.4<small>%</small></span><span class="stat-label">errors</span></div>
+                </div>
+              </div>
+
+              <div class="dash-traces">
+                <div class="trace trace-new">
+                  <span class="t-time">12:34:08</span>
+                  <span class="t-agent">claude-desktop</span>
+                  <span class="t-tool">github:create_issue</span>
+                  <div class="t-bar"><div class="t-fill" style="width:32%; background:#a78bfa"></div></div>
+                  <span class="t-lat">142ms</span>
+                  <span class="t-status ok">200</span>
+                </div>
+                <div class="trace">
+                  <span class="t-time">12:34:07</span>
+                  <span class="t-agent">cursor-team</span>
+                  <span class="t-tool">postgres:query</span>
+                  <div class="t-bar"><div class="t-fill" style="width:12%; background:#4ade80"></div></div>
+                  <span class="t-lat">38ms</span>
+                  <span class="t-status ok">200</span>
+                </div>
+                <div class="trace">
+                  <span class="t-time">12:34:06</span>
+                  <span class="t-agent">claude-desktop</span>
+                  <span class="t-tool">github:list_pull_requests</span>
+                  <div class="t-bar"><div class="t-fill" style="width:24%; background:#a78bfa"></div></div>
+                  <span class="t-lat">96ms</span>
+                  <span class="t-status ok">200</span>
+                </div>
+                <div class="trace trace-err">
+                  <span class="t-time">12:34:05</span>
+                  <span class="t-agent">ci-runner</span>
+                  <span class="t-tool">slack:post_message</span>
+                  <div class="t-bar"><div class="t-fill" style="width:85%; background:#f87171"></div></div>
+                  <span class="t-lat">5,012ms</span>
+                  <span class="t-status err">TIMEOUT</span>
+                </div>
+                <div class="trace">
+                  <span class="t-time">12:34:04</span>
+                  <span class="t-agent">claude-desktop</span>
+                  <span class="t-tool">filesystem:read_file</span>
+                  <div class="t-bar"><div class="t-fill" style="width:5%; background:#4ade80"></div></div>
+                  <span class="t-lat">14ms</span>
+                  <span class="t-status ok">200</span>
+                </div>
+                <div class="trace">
+                  <span class="t-time">12:34:03</span>
+                  <span class="t-agent">cursor-team</span>
+                  <span class="t-tool">postgres:explain</span>
+                  <div class="t-bar"><div class="t-fill" style="width:18%; background:#4ade80"></div></div>
+                  <span class="t-lat">62ms</span>
+                  <span class="t-status ok">200</span>
+                </div>
+                <div class="trace trace-blocked">
+                  <span class="t-time">12:34:02</span>
+                  <span class="t-agent">cursor-team</span>
+                  <span class="t-tool">github:delete_repo</span>
+                  <div class="t-bar"><div class="t-fill" style="width:8%; background:#facc15"></div></div>
+                  <span class="t-lat">2ms</span>
+                  <span class="t-status warn">SCOPE</span>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <p class="section-foot">
+          Self-host the dashboard locally. Or stream traces to Datadog, Honeycomb, Sentry — Conduit speaks OpenTelemetry out of the box.
         </p>
       </div>
     </section>
