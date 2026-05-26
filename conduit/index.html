@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://rsms.me/" />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="main.js" defer></script>
 </head>
 <body>
   <header class="nav">
@@ -299,33 +300,54 @@
           No SDK changes. No agent rewrites. Drop in the proxy, point your agent at it, watch every call.
         </p>
 
-        <ol class="steps">
-          <li class="step">
-            <div class="step-meta">
-              <span class="step-num">01</span>
-              <div>
-                <h3>Run the proxy</h3>
-                <p>One Docker command. No Kubernetes, no Python deps, no install scripts.</p>
+        <div class="stepper" data-stepper>
+          <!-- Clickable step navigation along a connecting track -->
+          <div class="stepper-nav" role="tablist" aria-label="Integration steps">
+            <button class="stepper-btn is-active" role="tab" aria-selected="true" data-step="1">
+              <span class="stepper-num">01</span>
+              <span class="stepper-title">Run</span>
+            </button>
+            <button class="stepper-btn" role="tab" aria-selected="false" data-step="2">
+              <span class="stepper-num">02</span>
+              <span class="stepper-title">Configure</span>
+            </button>
+            <button class="stepper-btn" role="tab" aria-selected="false" data-step="3">
+              <span class="stepper-num">03</span>
+              <span class="stepper-title">Connect</span>
+            </button>
+            <button class="stepper-btn" role="tab" aria-selected="false" data-step="4">
+              <span class="stepper-num">04</span>
+              <span class="stepper-title">Watch</span>
+            </button>
+          </div>
+
+          <!-- Animated underline track that slides under the active step -->
+          <div class="stepper-track" aria-hidden="true"><span class="stepper-track-fill"></span></div>
+
+          <!-- Panel: shows the active step's content; arrow keys + clicks navigate -->
+          <div class="stepper-panels">
+            <article class="stepper-panel is-active" role="tabpanel" data-step="1">
+              <div class="stepper-text">
+                <p class="stepper-kicker">Step 01 · Run</p>
+                <h3>Drop in the proxy</h3>
+                <p>One Docker command. No Kubernetes, no Python deps, no install scripts. Boots in under 500ms.</p>
               </div>
-            </div>
-            <pre class="step-code"><code><span class="c-prompt">$</span> docker run -p 8080:8080 \
+              <pre class="step-code"><code><span class="c-prompt">$</span> docker run -p 8080:8080 \
     -v $(pwd)/conduit.yaml:/etc/conduit/config.yaml \
     ghcr.io/conduit/conduit:latest
 
 <span class="c-ok">✓</span> <span class="c-dim">conduit listening on :8080</span>
 <span class="c-ok">✓</span> <span class="c-dim">event store opened (sqlite, ./conduit.db)</span>
-<span class="c-ok">✓</span> <span class="c-dim">auth/ratelimit ready</span></code></pre>
-          </li>
+<span class="c-ok">✓</span> <span class="c-dim">auth/ratelimit ready  (1 token loaded)</span></code></pre>
+            </article>
 
-          <li class="step">
-            <div class="step-meta">
-              <span class="step-num">02</span>
-              <div>
-                <h3>Define your upstreams</h3>
-                <p>List the MCP servers Conduit should proxy. Stdio child processes or remote HTTP — your choice.</p>
+            <article class="stepper-panel" role="tabpanel" data-step="2" hidden>
+              <div class="stepper-text">
+                <p class="stepper-kicker">Step 02 · Configure</p>
+                <h3>List your upstreams</h3>
+                <p>Conduit speaks stdio for local MCP servers and streamable HTTP for remote ones. Mix and match.</p>
               </div>
-            </div>
-            <pre class="step-code"><code><span class="c-key">servers:</span>
+              <pre class="step-code"><code><span class="c-key">servers:</span>
   <span class="c-key">github:</span>
     <span class="c-key">transport:</span> <span class="c-str">stdio</span>
     <span class="c-key">command:</span> [<span class="c-str">"npx"</span>, <span class="c-str">"@modelcontextprotocol/server-github"</span>]
@@ -334,20 +356,18 @@
 
 <span class="c-key">auth:</span>
   <span class="c-key">tokens:</span>
-    - <span class="c-key">name:</span> <span class="c-str">claude</span>
+    - <span class="c-key">name:</span> <span class="c-str">claude-desktop</span>
       <span class="c-key">key:</span>  <span class="c-var">${env:CONDUIT_CLAUDE_KEY}</span>
       <span class="c-key">scopes:</span> [<span class="c-str">"github.*"</span>]</code></pre>
-          </li>
+            </article>
 
-          <li class="step">
-            <div class="step-meta">
-              <span class="step-num">03</span>
-              <div>
+            <article class="stepper-panel" role="tabpanel" data-step="3" hidden>
+              <div class="stepper-text">
+                <p class="stepper-kicker">Step 03 · Connect</p>
                 <h3>Point your agent at Conduit</h3>
                 <p>One URL change. Your agent doesn't know it's not talking to the server directly.</p>
               </div>
-            </div>
-            <pre class="step-code"><code><span class="c-comment">// ~/.claude/claude_desktop_config.json</span>
+              <pre class="step-code"><code><span class="c-comment">// ~/.claude/claude_desktop_config.json</span>
 {
   <span class="c-key">"mcpServers"</span>: {
     <span class="c-key">"conduit"</span>: {
@@ -358,19 +378,32 @@
     }
   }
 }</code></pre>
-          </li>
+            </article>
 
-          <li class="step step-result">
-            <div class="step-meta">
-              <span class="step-num">04</span>
-              <div>
-                <h3>Watch every call flow through</h3>
-                <p>Open the dashboard. See traces, latencies, errors, and costs in real time.</p>
+            <article class="stepper-panel" role="tabpanel" data-step="4" hidden>
+              <div class="stepper-text">
+                <p class="stepper-kicker">Step 04 · Watch</p>
+                <h3>See every call flow through</h3>
+                <p>The dashboard streams traces live. Search by tool, agent, or status. Replay any past call.</p>
               </div>
-            </div>
-            <a class="step-link" href="#preview">See the dashboard ↓</a>
-          </li>
-        </ol>
+              <pre class="step-code"><code><span class="c-prompt">$</span> open http://localhost:8080/dashboard
+
+<span class="c-comment"># Or query the API directly</span>
+<span class="c-prompt">$</span> curl localhost:8080/api/events?limit=20 \
+    -H <span class="c-str">"Authorization: Bearer $CONDUIT_CLAUDE_KEY"</span>
+
+[
+  { <span class="c-key">"ts"</span>: <span class="c-str">"2026-05-26T19:34:08Z"</span>,
+    <span class="c-key">"agent"</span>: <span class="c-str">"claude-desktop"</span>,
+    <span class="c-key">"server"</span>: <span class="c-str">"github"</span>,
+    <span class="c-key">"tool"</span>: <span class="c-str">"create_issue"</span>,
+    <span class="c-key">"latency_ms"</span>: 142,
+    <span class="c-key">"status"</span>: <span class="c-str">"ok"</span> }
+]</code></pre>
+              <a class="step-link" href="#preview">See the live dashboard ↓</a>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -395,18 +428,26 @@
 
           <div class="dash-body">
             <aside class="dash-side">
-              <p class="dash-label">SERVERS</p>
+              <p class="dash-label">Servers</p>
               <ul class="dash-list">
                 <li><span class="dot dot-ok pulse"></span> github <span class="dash-meta">2.1k/hr</span></li>
                 <li><span class="dot dot-ok pulse"></span> postgres <span class="dash-meta">840/hr</span></li>
                 <li><span class="dot dot-warn pulse"></span> slack <span class="dash-meta">12 errs</span></li>
                 <li><span class="dot dot-ok"></span> filesystem <span class="dash-meta">320/hr</span></li>
               </ul>
-              <p class="dash-label">AGENTS</p>
+              <p class="dash-label">Agents</p>
               <ul class="dash-list">
                 <li><span class="dot dot-ok"></span> claude-desktop</li>
                 <li><span class="dot dot-ok"></span> cursor-team</li>
                 <li><span class="dot dot-ok"></span> ci-runner</li>
+              </ul>
+              <p class="dash-label">Top tools / 1h</p>
+              <ul class="top-tools">
+                <li><span class="tt-name">github:create_issue</span><span class="tt-bar"><span class="tt-fill" style="width:92%; background:#a78bfa"></span></span><span class="tt-num">342</span></li>
+                <li><span class="tt-name">postgres:query</span><span class="tt-bar"><span class="tt-fill" style="width:62%; background:#4ade80"></span></span><span class="tt-num">189</span></li>
+                <li><span class="tt-name">github:list_pr</span><span class="tt-bar"><span class="tt-fill" style="width:48%; background:#a78bfa"></span></span><span class="tt-num">142</span></li>
+                <li><span class="tt-name">slack:post_message</span><span class="tt-bar"><span class="tt-fill" style="width:28%; background:#f87171"></span></span><span class="tt-num">88</span></li>
+                <li><span class="tt-name">filesystem:read</span><span class="tt-bar"><span class="tt-fill" style="width:22%; background:#4ade80"></span></span><span class="tt-num">77</span></li>
               </ul>
             </aside>
 
@@ -414,16 +455,32 @@
               <div class="dash-header">
                 <div>
                   <h4>Live Traces <span class="live-pill"><span class="live-dot"></span>STREAMING</span></h4>
-                  <p class="dash-sub">2,341 calls in the last hour</p>
+                  <p class="dash-sub"><span data-counter>2,341</span> calls in the last hour</p>
                 </div>
                 <div class="dash-stats">
-                  <div class="stat"><span class="stat-num">142<small>ms</small></span><span class="stat-label">p50 latency</span></div>
-                  <div class="stat"><span class="stat-num stat-warn">487<small>ms</small></span><span class="stat-label">p99 latency</span></div>
-                  <div class="stat"><span class="stat-num stat-err">0.4<small>%</small></span><span class="stat-label">errors</span></div>
+                  <div class="stat"><span class="stat-num"><span data-p50>142</span><small>ms</small></span><span class="stat-label">p50</span></div>
+                  <div class="stat"><span class="stat-num stat-warn"><span data-p99>487</span><small>ms</small></span><span class="stat-label">p99</span></div>
+                  <div class="stat"><span class="stat-num stat-err"><span data-err>0.4</span><small>%</small></span><span class="stat-label">errors</span></div>
                 </div>
               </div>
 
-              <div class="dash-traces">
+              <!-- Latency sparkline — animated, rolls over time -->
+              <div class="dash-spark" aria-hidden="true">
+                <svg viewBox="0 0 400 50" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ff7a59" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#ff7a59" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path data-spark-fill class="spark-fill" d="M 0,40 L 0,40 Z" fill="url(#sparkFill)"/>
+                  <path data-spark-line class="spark-line" d="M 0,40" fill="none" stroke="#ff7a59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="spark-label-l">latency · last 60s</span>
+                <span class="spark-label-r"><span class="dot dot-ok pulse"></span> live</span>
+              </div>
+
+              <div class="dash-traces" data-traces>
                 <div class="trace trace-new">
                   <span class="t-time">12:34:08</span>
                   <span class="t-agent">claude-desktop</span>
