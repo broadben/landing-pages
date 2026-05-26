@@ -97,7 +97,13 @@ a:hover { color: var(--primary); }
   border-radius: 6px;
   box-shadow: 0 0 0 2px rgba(255,122,89,0.22), 0 0 24px rgba(142,114,255,0.25);
 }
-.brand-text { color: var(--text); }
+.brand-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.015em;
+}
 .nav-links {
   display: flex;
   gap: 28px;
@@ -201,6 +207,7 @@ a:hover { color: var(--primary); }
   text-align: left;
   background: var(--code-bg);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
   border-radius: var(--radius);
   padding: 20px 24px;
   font-family: var(--mono);
@@ -208,27 +215,59 @@ a:hover { color: var(--primary); }
   line-height: 1.7;
   color: #d4d4d8;
   overflow-x: auto;
+  position: relative;
+  box-shadow: 0 0 32px rgba(255,122,89,0.08);
+}
+/* Three terminal-style dots in the top-right, coral as the active one */
+.hero-code::before {
+  content: '';
+  position: absolute;
+  top: 14px; right: 16px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow:
+    -14px 0 0 0 rgba(250,204,21,0.6),
+    -28px 0 0 0 rgba(142,114,255,0.5);
 }
 .hero-code .prompt { color: var(--primary); user-select: none; }
 .hero-code .comment { color: var(--text-faint); }
 
 .trust { padding-top: 24px; }
 .trust p {
-  color: var(--text-faint);
+  color: var(--primary);
   font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0 0 16px;
+  opacity: 0.75;
 }
 .trust-row {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
   color: var(--text-muted);
   font-weight: 500;
   font-size: 14px;
 }
+/* Coral dot separator between wordmarks — small but visually unifying */
+.trust-row span {
+  position: relative;
+  padding-right: 24px;
+  transition: color .15s ease;
+}
+.trust-row span:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 50%;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--primary);
+  transform: translateY(-50%);
+  opacity: 0.5;
+}
+.trust-row span:hover { color: var(--primary); }
 
 /* SECTIONS */
 .section {
@@ -246,6 +285,19 @@ a:hover { color: var(--primary); }
   margin: 0 0 16px;
   text-align: center;
   font-weight: 700;
+  position: relative;
+}
+/* Small coral-purple bar above every section heading — gives every section
+   a consistent accent moment without flooding the page. */
+.section h2::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  border-radius: 999px;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 16px rgba(255,122,89,0.35);
 }
 .section-lede {
   text-align: center;
@@ -259,6 +311,20 @@ a:hover { color: var(--primary); }
   color: var(--text-muted);
   margin: 32px auto 0;
   max-width: 660px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,122,89,0.18);
+  position: relative;
+}
+.section-foot::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
 }
 
 /* THREE COLUMN CARDS */
@@ -274,10 +340,36 @@ a:hover { color: var(--primary); }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 32px;
-  transition: border .15s ease, transform .15s ease;
+  transition: border .15s ease, transform .15s ease, box-shadow .15s ease;
+  position: relative;
+  overflow: hidden;
+}
+/* Hairline coral top-border on every card — same accent as section h2 but
+   anchored to each card. Visible without being loud. */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.35;
+  transition: opacity .2s ease, left .3s ease, right .3s ease;
 }
 .card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,122,89,0.10); }
-.card-icon { font-size: 28px; margin-bottom: 16px; }
+.card:hover::after { opacity: 1; left: 0; right: 0; }
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,122,89,0.18) 0%, rgba(142,114,255,0.10) 100%);
+  border: 1px solid rgba(255,122,89,0.30);
+  font-size: 26px;
+  margin-bottom: 18px;
+  box-shadow: 0 0 24px rgba(255,122,89,0.10);
+}
 .card h3 {
   font-size: 19px;
   margin: 0 0 12px;
@@ -358,7 +450,28 @@ a:hover { color: var(--primary); }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
+  position: relative;
+  transition: border .15s ease, transform .15s ease, box-shadow .15s ease;
 }
+/* Coral L-bracket in the corner — subtle architectural accent, mirrors the
+   "production layer" hardware/network feel. */
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+  border-top-left-radius: 4px;
+  opacity: 0.5;
+  transition: opacity .15s ease, transform .15s ease;
+}
+.feature:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,122,89,0.08);
+}
+.feature:hover::before { opacity: 1; transform: scale(1.1); }
 .feature h3 {
   margin: 0 0 12px;
   font-size: 17px;
@@ -509,6 +622,17 @@ a:hover { color: var(--primary); }
   letter-spacing: -0.02em;
   margin: 0 0 12px;
   font-weight: 700;
+  position: relative;
+}
+.cta-section h2::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  border-radius: 999px;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 16px rgba(255,122,89,0.35);
 }
 .cta-section p { color: var(--text-muted); margin: 0 0 32px; }
 .cta-form {
@@ -543,6 +667,20 @@ a:hover { color: var(--primary); }
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
   padding: 56px 0 40px;
+  position: relative;
+}
+/* Coral hairline at the very top of the footer to bookend the page */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 2px;
+  background: var(--brand-gradient);
+  border-radius: 999px;
+  box-shadow: 0 0 20px rgba(255,122,89,0.3);
 }
 .footer-inner {
   display: grid;
@@ -563,13 +701,17 @@ a:hover { color: var(--primary); }
   font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--primary);
   margin: 0 0 16px;
+  opacity: 0.85;
 }
 .footer-cols a {
   display: block;
   color: var(--text-muted);
   font-size: 14px;
   padding: 4px 0;
+  transition: color .15s ease, padding-left .15s ease;
 }
+.footer-cols a:hover { color: var(--primary); padding-left: 4px; }
 .footer-cols a[aria-disabled="true"] { color: var(--text-faint); cursor: not-allowed; }
+.footer-cols a[aria-disabled="true"]:hover { padding-left: 0; }
